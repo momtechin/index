@@ -64,6 +64,12 @@ const SECTIONS = [
       tags: ['กฟส.บ้านแพง', 'Google Apps Script', 'รายวัน'], live: true,
       web: 'https://script.google.com/macros/s/AKfycbwNgfOGts7E2aAh9KMctO1uGm9tkAo-RID6BjEieoG_4Z-YWByuFbFy6NR_oN3ZrtBUeA/exec',
       repo: 'pea-shift-handover' } ] },
+  { title: 'เว็บไซต์ทางการ (ลิงก์ภายนอก)', note: 'ระบบของหน่วยงานรัฐ · แสนดีไม่ได้เป็นผู้พัฒนา', items: [
+    { icon: '☀️', name: 'โซลาร์ภาคประชาชน (กฟภ.)', desc: 'ลงทะเบียนรับสิทธิสนับสนุนค่าติดตั้งโซลาร์ 50,000 บาท/ราย · ลงทะเบียน 27 ต.ค. 2569 – 31 ม.ค. 2570 · ผู้ใช้ไฟ walk-in ยื่นแบบฟอร์มที่สำนักงาน กฟภ. พร้อมบัตรประชาชนตัวจริงและบิลค่าไฟล่าสุด',
+      tags: ['โซลาร์', 'กฟภ.', 'ลงทะเบียน', 'peoplesolar', 'walk-in'], live: true, web: 'https://peoplesolar.pea.co.th/',
+      links: [['ลงทะเบียน', 'https://peoplesolar.pea.co.th/register'], ['เข้าสู่ระบบ / สิทธิของฉัน', 'https://peoplesolar.pea.co.th/login'],
+              ['วิธีเข้าร่วม', 'https://peoplesolar.pea.co.th/join'], ['แบบฟอร์ม walk-in (PDF)', 'https://peoplesolar.pea.co.th/forms/solar-registration-form.pdf'],
+              ['คำถามที่พบบ่อย', 'https://peoplesolar.pea.co.th/faq']] } ] },
   { title: 'รายงานและแดชบอร์ด', note: 'GitHub Pages', items: [
     { icon: '📊', name: 'KPIs กฟส.บ้านแพง 2569', desc: 'คะแนนตัวชี้วัดสะสม ม.ค.–ก.ย. 2569', tags: ['KPI', 'รายงาน'],
       live: false, web: PAGES + 'monolith/', repo: 'monolith' },
@@ -87,12 +93,13 @@ function card(it) {
   const status = it.web ? `<span class="st ${it.live ? '' : 'off'}">${it.live ? '● ใช้งานได้' : '○ ปิดอยู่'}</span>` : '';
   const web = it.web ? (it.live ? `<a class="btn" href="${esc(it.web)}" target="_blank" rel="noopener">เปิด ↗</a>`
                                 : `<span class="btn dis" title="repo เป็น private — ไม่มีหน้าเว็บสาธารณะ">เว็บปิดอยู่</span>`) : '';
+  const links = (it.links || []).map(([t, u]) => `<a class="btn sec" href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a>`).join('');
   const repo = it.repo ? `<a class="btn sec" href="${GH + esc(it.repo)}" target="_blank" rel="noopener">Repo</a>` : '';
   return `<div class="card" data-k="${esc([it.name, it.desc, ...(it.tags || []), it.repo || ''].join(' ').toLowerCase())}">
     <div class="top"><div class="ico">${it.icon}</div><div><h3>${esc(it.name)}</h3></div></div>
     <p>${esc(it.desc)}</p>
     <div class="tags">${status}${(it.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
-    <div class="btns">${web}${repo}</div></div>`;
+    <div class="btns">${web}${links}${repo}</div></div>`;
 }
 document.getElementById('main').innerHTML = SECTIONS.map(s =>
   `<section><h2>${esc(s.title)} <small>${esc(s.note)}</small></h2><div class="grid">${s.items.map(card).join('')}</div></section>`).join('');
