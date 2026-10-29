@@ -70,13 +70,16 @@ const SECTIONS = [
     { icon: '⚡', name: 'แดชบอร์ดไฟฟ้าขัดข้อง', desc: 'เหตุไฟฟ้าขัดข้อง กฟส.บ้านแพง และ กฟส.นาทม (ชื่อผู้ปฏิบัติงานแสดงเป็นจำนวนคน ตาม PDPA)',
       tags: ['ไฟฟ้าขัดข้อง', 'แดชบอร์ด', 'นาทม'], live: false, web: PAGES + 'sandy/dashboard/', repo: 'sandy' },
     { icon: '🏗️', name: 'โครงการ คฟม.3 กฟส.บ้านแพง', desc: 'ตารางรายการโครงการ คฟม.3 (ข้อมูล 17 ต.ค. 2569)', tags: ['คฟม.3', 'โครงการ'],
-      live: false, web: PAGES + 'kfm3-banphaeng/', repo: 'kfm3-banphaeng' } ] },
-  { title: 'Repository (โค้ด)', note: 'github.com/momtechin · index เป็น public นอกนั้น private', items: [
+      live: true, web: PAGES + 'kfm3-banphaeng/', repo: 'kfm3-banphaeng' },
+    { icon: '📈', name: 'KPIs กฟส.นาทม (XS) 2569', desc: 'คะแนนตัวชี้วัดสะสม ม.ค.–ส.ค. 2569 ระดับคะแนน 4.7917 พร้อมหลักฐานรายข้อ', tags: ['KPI', 'นาทม', 'รายงาน'],
+      live: true, web: PAGES + 'kpi-nathom/', repo: 'kpi-nathom' } ] },
+  { title: 'Repository (โค้ด)', note: 'github.com/momtechin · index, kfm3-banphaeng, kpi-nathom เป็น public นอกนั้น private', items: [
     { icon: '🧭', name: 'index', desc: 'หน้าสารบัญนี้ (public · GitHub Pages)', tags: ['สารบัญ'], repo: 'index' },
     { icon: '🚚', name: 'pea-shift-handover', desc: 'โค้ดระบบส่งมอบเวร (Apps Script + หน้าเว็บ)', tags: ['Apps Script'], repo: 'pea-shift-handover' },
     { icon: '📊', name: 'monolith', desc: 'หน้า KPIs กฟส.บ้านแพง', tags: ['KPI'], repo: 'monolith' },
     { icon: '⚡', name: 'sandy', desc: 'แดชบอร์ดไฟฟ้าขัดข้อง (โฟลเดอร์ dashboard)', tags: ['แดชบอร์ด'], repo: 'sandy' },
-    { icon: '🏗️', name: 'kfm3-banphaeng', desc: 'ตารางโครงการ คฟม.3', tags: ['คฟม.3'], repo: 'kfm3-banphaeng' },
+    { icon: '🏗️', name: 'kfm3-banphaeng', desc: 'ตารางโครงการ คฟม.3 (public · GitHub Pages)', tags: ['คฟม.3'], repo: 'kfm3-banphaeng' },
+    { icon: '📈', name: 'kpi-nathom', desc: 'หน้า KPIs กฟส.นาทม (public · GitHub Pages)', tags: ['KPI'], repo: 'kpi-nathom' },
     { icon: '🤖', name: 'sonteen', desc: 'The agent that grows with you', tags: ['agent'], repo: 'sonteen' } ] }
 ];
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
